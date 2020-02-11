@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { GenericItem } from "./GenericItem";
-import { FooContext } from "./FooContext";
+import { ListContext } from "./ListContext";
 
-const FooItem = props => {
-    const { deleteItem } = useContext(FooContext);
+const ComplexItem = props => {
+    const { deleteItem } = useContext(ListContext);
     return <GenericItem {...props} handler={deleteItem} />;
 };
 
-export { FooItem }
+export { ComplexItem }

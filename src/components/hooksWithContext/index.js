@@ -1,12 +1,15 @@
 import React from "react";
-import { FooContextProvider } from "./FooContext";
-import { FooList } from "./FooList";
+import { ListContextProvider } from "./ListContext";
+import { ComplexList } from "./ComplexList";
 
 const HooksWithContext = () => {
   return (
-    <FooContextProvider>
-      <FooList />
-    </FooContextProvider>
+    <ListContextProvider>
+      {/* implement version with HOC abstraction using generic dumb components */}
+      <ComplexList />
+      {/* implement version without HOC abstraction */}
+      {/* <BasicList /> */}
+    </ListContextProvider>
   );
 };
 export { HooksWithContext };

@@ -1,24 +1,24 @@
 import React from "react";
-import { FOO_DATA } from "../fake-api";
-let FooContext;
-const { Provider, Consumer } = (FooContext = React.createContext());
+import { LIST_DATA } from "../fake-api";
+let ListContext;
+const { Provider, Consumer } = (ListContext = React.createContext());
 // Context.Provider, Context.Consumer
 
-class FooContextProvider extends React.Component {
+class ListContextProvider extends React.Component {
   state = {
-    items: FOO_DATA
+    items: LIST_DATA
   };
 
-  deleteThisFoo = id => {
+  deleteThisList = id => {
     console.log({ id });
     this.setState({ items: this.state.items.filter(item => item.id !== id) });
   };
 
-  addAnotherFoo(foo) {
+  addAnotherList(item) {
     this.setState({
       items: [
         ...this.state.items,
-        { id: foo.id ? foo.id : Math.random() * 1000, ...foo }
+        { id: item.id ? item.id : Math.random() * 1000, ...item }
       ]
     });
   }
@@ -28,8 +28,8 @@ class FooContextProvider extends React.Component {
       <Provider
         value={{
           items: this.state.items,
-          deleteItem: this.deleteThisFoo,
-          addItem: this.addAnotherFoo
+          deleteItem: this.deleteThisList,
+          addItem: this.addAnotherList
         }}
       >
         {this.props.children}
@@ -38,4 +38,4 @@ class FooContextProvider extends React.Component {
   }
 }
 
-export { FooContextProvider, Consumer as FooConsumer, FooContext };
+export { ListContextProvider, Consumer as ListConsumer, ListContext };
