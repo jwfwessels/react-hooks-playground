@@ -4,7 +4,6 @@ import { ListContext } from "../ListContext";
 import { ComplexItem } from "./ComplexItem";
 
 const ComplexList = () => {
-
     const { items } = useContext(ListContext);
     console.log({ items });
     return <GenericList renderItem={ComplexItem} data={items} />;
